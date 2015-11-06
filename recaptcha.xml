@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>System - Recaptcha Plugin</name>
+	<author>Christian Hinz</author>
+	<creationDate>November 2015</creationDate>
+	<copyright>Copyright 2015 milkycode UG</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>support@milkycode.com</authorEmail>
+	<authorUrl>www.milkycode.com</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[reCaptcha plugin for Joomla 1.5 by www.milkycode.com.]]></description>
+	<files>
+		<filename plugin="recaptcha">recaptcha.php</filename>
+		<filename>recaptcha/recaptchalib.php</filename>
+		<filename>recaptcha/api.php</filename>
+	</files>
+	<params>
+		<param type="radio" name="ajax" default="1" label="Use Ajax API">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param type="text" name="public" default='' label="Public Key" />
+		<param type="text" name="private" default='' label="Private Key" />
+		<param type="radio" name="addToContact" default='1' label="Add to Contact Page">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>
