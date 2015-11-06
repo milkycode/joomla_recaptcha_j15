@@ -14,31 +14,32 @@ In order to properly use Recaptcha, you will need to create an account at the re
 
 ### Joomla 1.5
 
-    - Go to Extensions > Plugin Manager
-    - Click the System - Recaptcha plugin.
+* Go to Extensions > Plugin Manager
+* Click the System - Recaptcha plugin.
 
 ### Joomla 1.0
 
-    - Go to Mambots > Site Mambots.
-    - Click the System - Recaptcha plugin (you may have to go the last page)
+* Go to Mambots > Site Mambots.
+* Click the System - Recaptcha plugin (you may have to go the last page)
 
 The parameters on the right provide textfields for the public and private keys.
 
 ### Ajax mode
 
-    Ajax mode is enabled by default. It helps avoid problems with "Operation Aborted" errors in IE6 and IE7. You can try to change it to Off and see what happens.
+Ajax mode is enabled by default. It helps avoid problems with "Operation Aborted" errors in IE6 and IE7. You can try to change it to Off and see what happens.
 
 ### Add to Contact Page J1.5
 
-    Automatically adds recaptcha to the default contact page. Can be deactivated in plugin settings.
+Automatically adds recaptcha to the default contact page. Can be deactivated in plugin settings.
 
 ### Add to Contact Page J1.0
 
-    In order to add a captcha to the Contact page in Joomla 1.0, you must add an event in your template file.
-    The 1.0 implementation depends on a custom event 'onTemplateDisplay'. If you would like a captcha on a standard Joomla contact page, you must first enable the feature in the plugin parameters, and then add the following line at the beginning of your templates index.php file:
-    ```
-    <?php $_MAMBOTS->trigger('onTemplateDisplay'); ?>
-    ```
+In order to add a captcha to the Contact page in Joomla 1.0, you must add an event in your template file.
+The 1.0 implementation depends on a custom event 'onTemplateDisplay'. If you would like a captcha on a standard Joomla contact page, you must first enable the feature in the plugin parameters, and then add the following line at the beginning of your templates index.php file:
+
+```
+<?php $_MAMBOTS->trigger('onTemplateDisplay'); ?>
+```
 
 ## Use in own Components
 
@@ -52,7 +53,7 @@ The API is exposed through a singleton object, 'ReCaptcha'. The processing happe
 
 This method must be called statically. An example would be:
 
-```
+``` php
 ReCaptcha::get('html');
 ```
 
@@ -72,12 +73,12 @@ A boolean that indicates if the user entered the phrase correctly.
 
 ### Full example
 
-```
+``` php
 // inside you form (e.g. registration.html.php):
 <?php echo ReCaptcha?::get('html'); ?>
 ```
 
-```
+``` php
 // Then your registration.php use the following near the top of your save() function;
 if (ReCaptcha::get('submitted')) {
     if (!ReCaptcha::get('success')) {
