@@ -4,6 +4,9 @@ This plugin integrates reCaptcha into Joomla 1.5 and should also can be used in 
 I know, better updating to newer Joomla versions, but there are some existing J1.5 sites, which may find this usefull to prevent SPAM.
 The plugin is based on https://code.google.com/p/joomla-recaptcha/.
 
+* https://www.milkycode.com
+* Like us on Facebook: https://www.facebook.com/milkycode
+
 ## Installation
 
 Install via the standard Joomla installer.
