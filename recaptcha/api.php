@@ -4,7 +4,7 @@
  * @author      Christian Hinz <christian@milkycode.com>
  * @category    plugins
  * @package     plugins_system
- * @copyright   Copyright (c) 2015 milkycode UG (http://www.milkycode.com)
+ * @copyright   Copyright (c) 2018 milkycode GmbH (http://www.milkycode.com)
  * @url         https://github.com/milkycode/joomla_recaptcha_j15
  */
 
@@ -12,21 +12,14 @@ require_once(dirname(__FILE__).'/recaptchalib.php');
 
 class ReCaptcha
 {
-    var $_success;
-
+    var $_success = false;
     var $_error;
-
     var $_resp;
-
     var $_ajax = true;
-
     var $_submitted = false;
-
     var $_processed = false;
-
-    var $_publicKey = '6Lf2-QQAAAAAAC5kQM5ChJfvRP1jZNvOn8kE590h';
-
-    var $_privateKey = '6Lf2-QQAAAAAAFcse8UtCXQ82wW5fWG9koEQAktv';
+    var $_publicKey = '';
+    var $_privateKey = '';
 
     function &getInstance()
     {
@@ -83,20 +76,20 @@ class ReCaptcha
             return;
         }
 
-        if (JRequest::getVar("recaptcha_challenge_field")) {
+        if (JRequest::getVar("email")) {
             $this->_submitted = true;
             $this->_resp = recaptcha_check_answer(
                 $this->_get('privateKey'),
                 $_SERVER["REMOTE_ADDR"],
-                JRequest::getVar("recaptcha_challenge_field"),
-                JRequest::getVar("recaptcha_response_field")
+                JRequest::getVar("g-recaptcha-response")
             );
             $this->_success = $this->_resp->is_valid;
             if (!$this->_success) {
                 $this->_error = $this->_resp->error;
             }
         }
-        $this->_html = recaptcha_get_html($this->_get('publicKey'), $this->_get('error'), $this->_ajax);
+
+        $this->_html = recaptcha_get_html($this->_get('publicKey'), $this->_ajax);
         $this->_processed = true;
     }
 }

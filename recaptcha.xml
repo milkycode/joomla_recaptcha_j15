@@ -3,11 +3,11 @@
 	<name>System - Recaptcha Plugin</name>
 	<author>Christian Hinz</author>
 	<creationDate>November 2015</creationDate>
-	<copyright>Copyright 2015 milkycode UG</copyright>
+	<copyright>Copyright 2018 milkycode GmbH</copyright>
 	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
 	<authorEmail>support@milkycode.com</authorEmail>
 	<authorUrl>www.milkycode.com</authorUrl>
-	<version>1.0.1</version>
+	<version>2.0.0</version>
 	<description><![CDATA[reCaptcha plugin for Joomla 1.5 by www.milkycode.com.]]></description>
 	<files>
 		<filename plugin="recaptcha">recaptcha.php</filename>
@@ -15,12 +15,12 @@
 		<filename>recaptcha/api.php</filename>
 	</files>
 	<params>
-		<param type="radio" name="ajax" default="1" label="Use Ajax API">
+		<param type="radio" name="ajax" default="1" label="Explicit mode">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
-		<param type="text" name="public" default='' label="Public Key" />
-		<param type="text" name="private" default='' label="Private Key" />
+		<param type="text" name="public" default='' label="Key" />
+		<param type="text" name="private" default='' label="Secret" />
 		<param type="radio" name="addToContact" default='1' label="Add to Contact Page">
 			<option value="0">No</option>
 			<option value="1">Yes</option>

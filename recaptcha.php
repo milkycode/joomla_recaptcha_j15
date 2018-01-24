@@ -4,7 +4,7 @@
  * @author      Christian Hinz <christian@milkycode.com>
  * @category    plugins
  * @package     plugins_system
- * @copyright   Copyright (c) 2015 milkycode UG (http://www.milkycode.com)
+ * @copyright   Copyright (c) 2018 milkycode GmbH (http://www.milkycode.com)
  * @url         https://github.com/milkycode/joomla_recaptcha_j15
  */
 
@@ -31,10 +31,7 @@ class plgSystemRecaptcha extends JPlugin
         $view = JRequest::getCmd('view');
         $task = JRequest::getCmd('task');
 
-        if ($this->params->get('addToContact', 1) == 1 &&
-            $option == 'com_contact' &&
-            $task == 'submit'
-        ) {
+        if ($this->params->get('addToContact', 1) == 1 && $option == 'com_contact' && $task == 'submit') {
             return true;
         }
 
@@ -64,6 +61,7 @@ class plgSystemRecaptcha extends JPlugin
         }
         if (ReCaptcha::get('submitted') && !ReCaptcha::get('success')) {
             JRequest::setVar('task', 'display');
+            JError::raiseWarning(0, 'Bitte `Ich bin kein Roboter` anklicken!');
         }
     }
 
