@@ -61,7 +61,7 @@ class plgSystemRecaptcha extends JPlugin
         }
         if (ReCaptcha::get('submitted') && !ReCaptcha::get('success')) {
             JRequest::setVar('task', 'display');
-            JError::raiseWarning(0, 'Bitte `Ich bin kein Roboter` anklicken!');
+            JError::raiseWarning(0, 'Please activate Captcha!'); // Bitte `Ich bin kein Roboter` anklicken!
         }
     }
 
